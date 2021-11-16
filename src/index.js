@@ -1,7 +1,8 @@
 import './style.css';
+import { getMyMovies } from './display.js';
 
-const root = document.querySelector('#root');
+const movieID = [35814, 22622, 28417, 38923, 27387, 28376, 24493, 2589, 41883];
 
-document.body.style.backgroundColor = 'yellow';
-
-return root;
+window.addEventListener('DOMContentLoaded', () => {
+  getMyMovies(movieID);
+});
