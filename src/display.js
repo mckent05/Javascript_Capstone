@@ -23,22 +23,19 @@ const displayMovies = (movieName, image) => {
     btn.addEventListener('click', (e) => {
       const modal = document.getElementById('myModal');
       const modalContent = document.getElementById('modal-content');
-      const movieImg = e.target.parentElement.parentElement.children[0];
-      modalContent.append(movieImg, e.target.parentElement.previousElementSibling.children[0].innerHTML);
+      modalContent.append(e.target.parentElement.parentElement.children[0], e.target.parentElement.previousElementSibling.children[0].innerHTML);
       modal.style.display = 'block';
-      // console.log(e.target.parentElement.previousElementSibling.children[0].innerHTML);
-      
 
-      document.getElementsByClassName('close')[0].addEventListener('click', () => {
+      document.getElementsByClassName('close')[0].addEventListener('click', (e) => {
         modal.style.display = 'none';
-        modalContent.removeChild(movieImg, e.target.parentElement.previousElementSibling.children[0].innerHTML);
+        modalContent.removeChild(e.target.parentElement.parentElement.children[0], e.target.parentElement.previousElementSibling.children[0].innerHTML);
       });
     
       window.onclick = function (event) {
         if (event.target === modal) {
           modal.style.display = 'none';
           if (modalContent.hasChildNodes) {
-            modalContent.removeChild(movieImg, e.target.parentElement.previousElementSibling.children[0].innerHTML);
+            modalContent.removeChild(event.target.parentElement.parentElement.children[0], event.target.parentElement.previousElementSibling.children[0].innerHTML);
           }
         }
       };
