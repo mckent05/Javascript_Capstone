@@ -15,6 +15,10 @@
   justify-content: center;
 }
 
+.align-center {
+  text-align: center;
+}
+
 .a-center {
   align-items: center;
 }

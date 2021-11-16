@@ -21,14 +21,41 @@ const displayMovies = (movieName, image) => {
   const allCommentBtns = document.querySelectorAll('.comment-btn');
   allCommentBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
+      console.log(e.target);
       const modal = document.getElementById('myModal');
       const modalContent = document.getElementById('modal-content');
-      modalContent.append(e.target.parentElement.parentElement.children[0], e.target.parentElement.previousElementSibling.children[0].innerHTML);
+      const content = document.createElement('section');
+      content.classList = 'align-center';
+      content.innerHTML = `<img src=${image} alt="movie-pic">
+      <h2 id="movie-title">${movieName}</h2>
+      <section id="features" class="d-flex j-center">
+        <div id="featA" class="d-flex flex-dir">
+          <span>RightA</span>
+          <span>RightB</span>
+        </div>
+        <div id="featB" class="d-flex flex-dir">
+          <span>LeftA</span>
+          <span>LeftB</span>
+        </div>
+      </section>
+      <h2>comments <span id="comment-count"></span></h2>
+      <ul class="comment-list">
+        <li><span id="comment-date">16/11/2021</span><span id="comment-user">Name</span><span
+            id="comment-msg">Message</span>
+        </li>
+      </ul>
+      <form action="" class="d-flex flex-dir">
+        <input type="text" id="user" placeholder="Your name">
+        <input type="text" id="comment" placeholder="Your insights">
+        <button type="submit" id="submit">Submit</button>
+      </form>`
+      // modalContent.append(e.target.parentElement.parentElement.children[0], e.target.parentElement.previousElementSibling.children[0].innerHTML);
+      modalContent.append(content);
       modal.style.display = 'block';
 
       document.getElementsByClassName('close')[0].addEventListener('click', (e) => {
         modal.style.display = 'none';
-        modalContent.removeChild(e.target.parentElement.parentElement.children[0], e.target.parentElement.previousElementSibling.children[0].innerHTML);
+        modalContent.removeChild(content);
       });
     
       window.onclick = function (event) {
