@@ -1,4 +1,22 @@
-body {
-  color: red;
-  background-color: rgb(171, 199, 190);
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.partial0 {
+  justify-content: space-around;
+  background-color: rgb(255, 255, 255);
+  padding: 3% 0;
+}
+
+li {
+  list-style: none;
+}
+
+footer {
+  margin-top: 28rem;
 }
