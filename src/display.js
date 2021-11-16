@@ -1,5 +1,4 @@
-const fetchFilm = (id) =>
-  fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${id}`);
+const fetchFilm = (id) => fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${id}`);
 
 const movieCont = document.querySelector('.movie-cont');
 
@@ -16,7 +15,6 @@ const displayMovies = (movieName, image) => {
     </div>
     <div class='btn-cont'>
         <button class='comment-btn' data-id='comment'>comment</button>
-        <button class='reservation-btn' data-id='reservation'>reservation</button>
     </div>
    </li>`;
 };
@@ -37,4 +35,4 @@ const getMyMovies = (list) => {
   });
 };
 
-export { getMyMovies };
+export default getMyMovies;
