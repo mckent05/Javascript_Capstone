@@ -21,7 +21,27 @@ const displayMovies = (movieName, image) => {
   const allCommentBtns = document.querySelectorAll('.comment-btn');
   allCommentBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      console.log(e.target.parentElement.previousElementSibling.children[0].innerHTML);
+      const modal = document.getElementById('myModal');
+      const modalContent = document.getElementById('modal-content');
+      const movieImg = e.target.parentElement.parentElement.children[0];
+      modalContent.append(movieImg, e.target.parentElement.previousElementSibling.children[0].innerHTML);
+      modal.style.display = 'block';
+      // console.log(e.target.parentElement.previousElementSibling.children[0].innerHTML);
+      
+
+      document.getElementsByClassName('close')[0].addEventListener('click', () => {
+        modal.style.display = 'none';
+        modalContent.removeChild(movieImg, e.target.parentElement.previousElementSibling.children[0].innerHTML);
+      });
+    
+      window.onclick = function (event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          if (modalContent.hasChildNodes) {
+            modalContent.removeChild(movieImg, e.target.parentElement.previousElementSibling.children[0].innerHTML);
+          }
+        }
+      };
     })
   })
 };
