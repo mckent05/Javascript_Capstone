@@ -17,6 +17,13 @@ const displayMovies = (movieName, image) => {
         <button class='comment-btn p-relative' data-id='comment'>comment</button>
     </div>
    </li>`;
+
+  const allCommentBtns = document.querySelectorAll('.comment-btn');
+  allCommentBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      console.log(e.target.parentElement.previousElementSibling.children[0].innerHTML);
+    })
+  })
 };
 
 const getMovies = async (id) => {
