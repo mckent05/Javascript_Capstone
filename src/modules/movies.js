@@ -37,7 +37,7 @@ const displayMovies = (movieName, image, likes) => {
   myLikes.forEach((like) => {
     like.addEventListener('click', (e) => {
       e.currentTarget.classList.add('red-back');
-      let itemId = e.currentTarget.parentElement.parentElement.children[0].innerHTML;
+      const itemId = e.currentTarget.parentElement.parentElement.children[0].innerHTML;
       let newLikes = e.currentTarget.nextElementSibling.children[0].innerHTML;
       newLikes = parseInt(newLikes, 10);
       postNewLikes(itemId);
