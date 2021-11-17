@@ -25,8 +25,7 @@ const displayMovies = (movieName, image, likes) => {
   const allCommentBtns = document.querySelectorAll('.comment-btn');
   allCommentBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      const movieTitle =
-        e.target.parentElement.previousElementSibling.children[0].innerHTML;
+      const movieTitle = e.target.parentElement.previousElementSibling.children[0].innerHTML;
       modal.style.display = 'block';
       fetchAllPopup(movieID, movieTitle);
     });
