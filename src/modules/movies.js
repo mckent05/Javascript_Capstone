@@ -1,7 +1,7 @@
-import { postLikes, getLikes } from './modules/likes.js'
+import { postLikes, getLikes } from './likes.js'
 import { modal, fetchAllPopup, fetchFilm } from './display.js';
 
-const movieID = [35814, 22622, 28417, 38923, 27387, 28376, 24493, 2589, 41883];
+const movieID = [35814, 22622, 28417, 38923, 27387, 28376, 24493, 2589, 41883, 27195];
 const movieCont = document.querySelector('.movie-cont');
 
 const displayMovies = (movieName, image, likes) => {
