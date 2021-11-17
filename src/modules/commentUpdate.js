@@ -25,4 +25,10 @@ const postComment = async (id, name, comment) => {
   }
 };
 
-export { postComment };
+const getComments = async (id) => {
+  const req = await fetch(`${baseUrl}?item_id=${id}`);
+  const res = await req.json();
+  const data = await res;
+  return data;
+};
+export { getComments, postComment };
