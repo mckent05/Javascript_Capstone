@@ -1,7 +1,6 @@
-import { getComments, postComment } from './commentUpdate';
+import { getComments, postComment } from './commentUpdate.js';
 
-const fetchFilm = (id) =>
-  fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${id}`);
+const fetchFilm = (id) => fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${id}`);
 
 const modal = document.getElementById('myModal');
 
@@ -12,7 +11,8 @@ const commentPopup = (
   runtime,
   image,
   title,
-  movieId
+  movieId,
+  summary,
 ) => {
   const modalContent = document.getElementById('modal-content');
   const content = document.createElement('section');
@@ -29,9 +29,13 @@ const commentPopup = (
       <span>Runtime: ${runtime} hrs</span>
     </div>
   </section>
-  <h2>comments <span id="comment-count"></span></h2>
+  <section id="description" class="d-flex">
+    <p>${summary}</p>
+  </section>
+  <h3>comments <span id="comment-count"></span></h3>
   <ul class="comment-list"></ul>
   <form action="" class="d-flex flex-dir">
+    <h3>Add a comment</h3>
     <input type="text" id="user" placeholder="Your name" required>
     <input type="text" id="comment" placeholder="Your insights" required>
     <button type="submit" id="submit">Submit</button>
@@ -77,7 +81,7 @@ const commentPopup = (
     postComment(
       movieId,
       document.getElementById('user').value,
-      document.getElementById('comment').value
+      document.getElementById('comment').value,
     );
   });
 };
@@ -93,7 +97,8 @@ const fetchPopup = async (id, movieName) => {
         req.averageRuntime,
         req.image.medium,
         req.name,
-        req.id
+        req.id,
+        req.summary,
       );
     }
     return req;

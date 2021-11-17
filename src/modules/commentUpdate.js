@@ -1,13 +1,13 @@
-const baseUrl =
-  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/fmn7FvfYPqUQ1nyJXuIv/comments';
+const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/fmn7FvfYPqUQ1nyJXuIv/comments';
 
 const postComment = async (id, name, comment) => {
   try {
+    let newComment;
     if (name !== '' && comment !== '') {
-      const newComment = {
+      newComment = {
         item_id: id,
         username: name,
-        comment: comment,
+        comment,
       };
 
       await fetch(baseUrl, {
@@ -17,9 +17,10 @@ const postComment = async (id, name, comment) => {
         },
         body: JSON.stringify(newComment),
       });
+      document.getElementById('user').value = '';
+      document.getElementById('comment').value = '';
     }
-    name = '';
-    comment = '';
+    return newComment;
   } catch (error) {
     return error;
   }
