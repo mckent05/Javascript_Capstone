@@ -15,6 +15,10 @@
   justify-content: center;
 }
 
+.j-space-around {
+  justify-content: space-around;
+}
+
 .align-center {
   text-align: center;
 }
@@ -28,7 +32,6 @@
 }
 
 .partial0 {
-  justify-content: space-around;
   background-color: rgb(78, 75, 75);
   padding: 3% 0;
 }
@@ -64,7 +67,6 @@ a {
 
 .desc {
   width: 80%;
-  justify-content: space-around;
   align-items: flex-start;
   margin: 10px 0;
 }
@@ -111,7 +113,7 @@ a {
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 50%;

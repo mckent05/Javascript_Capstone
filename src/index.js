@@ -1,7 +1,5 @@
 import './style.css';
-import getMyMovies from './display.js';
-
-const movieID = [35814, 22622, 28417, 38923, 27387, 28376, 24493, 2589, 41883];
+import { movieID, getMyMovies } from './modules/movies.js';
 
 window.addEventListener('DOMContentLoaded', () => {
   getMyMovies(movieID);
