@@ -1,7 +1,9 @@
-import { postLikes, getLikes } from './likes.js'
+import { getLikes } from './likes.js';
 import { modal, fetchAllPopup, fetchFilm } from './display.js';
 
-const movieID = [35814, 22622, 28417, 38923, 27387, 28376, 24493, 2589, 41883, 27195];
+const movieID = [
+  35814, 22622, 28417, 38923, 27387, 28376, 24493, 2589, 41883, 27195,
+];
 const movieCont = document.querySelector('.movie-cont');
 
 const displayMovies = (movieName, image, likes) => {
@@ -23,7 +25,8 @@ const displayMovies = (movieName, image, likes) => {
   const allCommentBtns = document.querySelectorAll('.comment-btn');
   allCommentBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      const movieTitle = e.target.parentElement.previousElementSibling.children[0].innerHTML;
+      const movieTitle =
+        e.target.parentElement.previousElementSibling.children[0].innerHTML;
       modal.style.display = 'block';
       fetchAllPopup(movieID, movieTitle);
     });
@@ -33,12 +36,12 @@ const displayMovies = (movieName, image, likes) => {
 const getMovies = async (id) => {
   try {
     const data = await (await fetchFilm(id)).json();
-    const data_ID = data.name
+    const dataID = data.name;
     // postLikes(data.name)
-    let likesData = await(await getLikes()).json()
-    likesData = likesData.filter((item) => item.item_id === data_ID)
+    let likesData = await (await getLikes()).json();
+    likesData = likesData.filter((item) => item.item_id === dataID);
     displayMovies(data.name, data.image.medium, likesData[0].likes);
-    return likesData
+    return likesData;
   } catch (err) {
     return err;
   }
