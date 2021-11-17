@@ -54,8 +54,10 @@ const commentPopup = (
   };
 
   const commentList = document.querySelector('.comment-list');
+  const commentCount = document.querySelector('#comment-count');
   const eachComment = getComments(movieId);
   eachComment.then((data) => {
+    commentCount.textContent = `(${data.length})`;
     if (data.length > 0 || data.error !== "'item_id' not found.") {
       data.forEach((comment) => {
         const li = document.createElement('li');
