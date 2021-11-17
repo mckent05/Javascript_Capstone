@@ -1,6 +1,6 @@
 import { getLikes } from './likes.js';
 import { modal, fetchAllPopup, fetchFilm } from './display.js';
-import  postNewLikes from './addlikes.js'; 
+import postNewLikes from './addlikes.js';
 
 const movieID = [
   35814, 22622, 28417, 38923, 27387, 28376, 24493, 2589, 41883, 27195,
@@ -37,10 +37,10 @@ const displayMovies = (movieName, image, likes) => {
   myLikes.forEach((like) => {
     like.addEventListener('click', (e) => {
       e.currentTarget.classList.add('red-back');
-      let item_id = e.currentTarget.parentElement.parentElement.children[0].innerHTML;
+      let itemId = e.currentTarget.parentElement.parentElement.children[0].innerHTML;
       let newLikes = e.currentTarget.nextElementSibling.children[0].innerHTML;
-      newLikes = parseInt(newLikes);
-      postNewLikes(item_id);
+      newLikes = parseInt(newLikes, 10);
+      postNewLikes(itemId);
       newLikes += 1;
       e.currentTarget.nextElementSibling.children[0].innerHTML = newLikes;
     });
