@@ -72,7 +72,7 @@ const commentPopup = (
         const li = document.createElement('li');
         li.innerHTML = `
           <span id="comment-date">${comment.creation_date}</span>
-          <span id="comment-user">${comment.username}</span>
+          <span id="comment-user">${comment.username}</span>:
           <span id="comment-msg">${comment.comment}</span>
         `;
         commentList.append(li);
