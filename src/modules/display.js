@@ -1,8 +1,14 @@
 import { getComments, postComment } from './commentUpdate.js';
 
-const fetchFilm = (id) => fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${id}`);
+const fetchFilm = (id) =>
+  fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${id}`);
 
 const modal = document.getElementById('myModal');
+
+const commentCounter = (list, holder) => {
+  // const commentCount = document.querySelector('#comment-count');
+  return (holder.textContent = `(${list.length})`);
+};
 
 const commentPopup = (
   premiered,
@@ -12,7 +18,7 @@ const commentPopup = (
   image,
   title,
   movieId,
-  summary,
+  summary
 ) => {
   const modalContent = document.getElementById('modal-content');
   const content = document.createElement('section');
@@ -59,6 +65,7 @@ const commentPopup = (
 
   const commentList = document.querySelector('.comment-list');
   const displayComments = (list) => {
+    commentCounter(list, document.querySelector('#comment-count'));
     commentList.textContent = '';
     if (list.length > 0) {
       list.forEach((comment) => {
@@ -73,10 +80,8 @@ const commentPopup = (
     }
   };
 
-  const commentCount = document.querySelector('#comment-count');
   const eachComment = getComments(movieId);
   eachComment.then((data) => {
-    commentCount.textContent = `(${data.length})`;
     displayComments(data);
   });
 
@@ -86,11 +91,10 @@ const commentPopup = (
     postComment(
       movieId,
       document.getElementById('user').value,
-      document.getElementById('comment').value,
+      document.getElementById('comment').value
     ).then(() => {
       const refreshComment = getComments(movieId);
       refreshComment.then((data) => {
-        commentCount.textContent = `(${data.length})`;
         displayComments(data);
       });
     });
@@ -109,7 +113,7 @@ const fetchPopup = async (id, movieName) => {
         req.image.medium,
         req.name,
         req.id,
-        req.summary,
+        req.summary
       );
     }
     return req;
@@ -124,4 +128,4 @@ const fetchAllPopup = (list, movieName) => {
   });
 };
 
-export { modal, fetchAllPopup, fetchFilm };
+export { modal, fetchAllPopup, fetchFilm, commentCounter };
