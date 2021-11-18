@@ -1,6 +1,7 @@
 import { getComments, postComment } from './commentUpdate.js';
 
-const fetchFilm = (id) => fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${id}`);
+const fetchFilm = (id) =>
+  fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${id}`);
 
 const modal = document.getElementById('myModal');
 
@@ -12,7 +13,7 @@ const commentPopup = (
   image,
   title,
   movieId,
-  summary,
+  summary
 ) => {
   const modalContent = document.getElementById('modal-content');
   const content = document.createElement('section');
@@ -58,12 +59,10 @@ const commentPopup = (
   };
 
   const commentList = document.querySelector('.comment-list');
-  const commentCount = document.querySelector('#comment-count');
-  const eachComment = getComments(movieId);
-  eachComment.then((data) => {
-    commentCount.textContent = `(${data.length})`;
-    if (data.length > 0 || data.error !== "'item_id' not found.") {
-      data.forEach((comment) => {
+  const displayComments = (list) => {
+    commentList.textContent = '';
+    if (list.length > 0) {
+      list.forEach((comment) => {
         const li = document.createElement('li');
         li.innerHTML = `
           <span id="comment-date">${comment.creation_date}</span>
@@ -73,6 +72,13 @@ const commentPopup = (
         commentList.append(li);
       });
     }
+  };
+
+  const commentCount = document.querySelector('#comment-count');
+  const eachComment = getComments(movieId);
+  eachComment.then((data) => {
+    commentCount.textContent = `(${data.length})`;
+    displayComments(data);
   });
 
   const submitComment = document.getElementById('submit');
@@ -81,8 +87,14 @@ const commentPopup = (
     postComment(
       movieId,
       document.getElementById('user').value,
-      document.getElementById('comment').value,
-    );
+      document.getElementById('comment').value
+    ).then(() => {
+      const refreshComment = getComments(movieId);
+      refreshComment.then((data) => {
+        commentCount.textContent = `(${data.length})`;
+        displayComments(data);
+      });
+    });
   });
 };
 
@@ -98,7 +110,7 @@ const fetchPopup = async (id, movieName) => {
         req.image.medium,
         req.name,
         req.id,
-        req.summary,
+        req.summary
       );
     }
     return req;
