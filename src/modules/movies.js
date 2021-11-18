@@ -65,7 +65,10 @@ const getMyMovies = (list) => {
   list.forEach((item) => {
     getMovies(item);
   });
-  movieCounter.innerHTML = ` (${list.length})`;
 };
 
-export { movieID, getMyMovies };
+const itemCounter = (list) => {
+  return list;
+};
+
+export { movieID, getMyMovies, itemCounter, movieCounter };
