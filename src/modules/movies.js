@@ -67,8 +67,8 @@ const getMyMovies = (list) => {
   });
 };
 
-const itemCounter = (list) => {
-  return list;
-};
+const itemCounter = (list) => list;
 
-export { movieID, getMyMovies, itemCounter, movieCounter };
+export { 
+  movieID, getMyMovies, itemCounter, movieCounter,
+};

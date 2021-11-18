@@ -1,5 +1,6 @@
 import { itemCounter } from '../modules/movies.js';
-let movieID = [
+
+const movieID = [
   35814, 22622, 28417, 38923, 27387, 28376, 24493, 2589, 41883, 27195,
 ];
 describe('all items on home page', () => {
