@@ -44,7 +44,7 @@ nav {
 }
 
 #root {
-  background:  url(./img/backg.jpg) center/cover no-repeat;
+  background: url(./img/backg.jpg) center/cover no-repeat;
 }
 
 li {
@@ -80,7 +80,7 @@ a {
   0% {
     transform: translateX(70%);
   }
-  
+
   50% {
     transform: translateX(35%);
   }
@@ -103,6 +103,10 @@ a {
   width: 25%;
   padding: 10px;
   box-shadow: 0 2px 8px ghostwhite;
+}
+
+.movie-cont li:hover {
+  transform: scale(1.1);
 }
 
 .desc {
@@ -259,7 +263,8 @@ textarea {
   justify-self: flex-start;
 }
 
-/* .comment-list {
+.comment-list {
   height: 150px;
-  overflow: scroll;
-} */
+  min-height: 25%;
+  overflow-y: scroll;
+}
