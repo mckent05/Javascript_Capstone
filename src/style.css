@@ -168,12 +168,23 @@ a {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: #e4e4d6;
   margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 50%;
+}
+
+.b-radius {
   border-radius: 17px;
+}
+
+.l-high {
+  line-height: 2;
+}
+
+.inner-pad {
+  padding: 2px 8px;
 }
 
 .close {
@@ -193,3 +204,62 @@ a {
 .red-back {
   color: red;
 }
+
+/*
+Popup styles
+.img-container {
+  width: 20%;
+}
+
+.popup-img {
+  width: 10px;
+  margin-bottom: 100px;
+}
+
+.popup-img:hover {
+  transform: scale(1.2);
+}
+*/
+
+#movie-title {
+  font-size: 2rem;
+  color: rgb(35, 27, 49);
+  margin: 8% 0 2%;
+}
+
+#features {
+  margin-bottom: 2%;
+  font-weight: 900;
+}
+
+.feat {
+  justify-content: flex-start;
+}
+
+.feat > span {
+  margin: 2% 0;
+}
+
+.form {
+  margin: 3% 15%;
+  padding: 16px;
+  background-color: #d5d8cf;
+}
+
+textarea {
+  margin: 4px 0;
+}
+
+#description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  margin: 5%;
+  justify-self: flex-start;
+}
+
+/* .comment-list {
+  height: 150px;
+  overflow: scroll;
+} */
