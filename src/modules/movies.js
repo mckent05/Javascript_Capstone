@@ -20,7 +20,7 @@ const displayMovies = (movieName, image, likes) => {
         </article>
     </section>
     <div class='btn-cont p-relative d-flex a-center j-center flex-dir'>
-        <button class='comment-btn p-relative' data-id='comment'>comment</button>
+        <button class='comment-btn p-relative d-flex a-center' data-id='comment'>comment <span class= 'fas fa-comment-alt'></span></button>
     </div>
    </li>`;
 

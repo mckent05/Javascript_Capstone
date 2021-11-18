@@ -7,7 +7,8 @@
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack",
-    "test": "jest --env=jsdom"
+    "test": "jest --env=jsdom",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
     "webpack-dev-server": "^4.5.0"
   },
   "dependencies": {
-    "eslint-config-airbnb": "^19.0.0"
+    "eslint-config-airbnb": "^19.0.0",
+    "gh-pages": "^3.2.3"
   }
 }

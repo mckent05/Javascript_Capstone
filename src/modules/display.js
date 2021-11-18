@@ -22,14 +22,14 @@ const commentPopup = (
   const modalContent = document.getElementById('modal-content');
   const content = document.createElement('section');
   content.classList = 'align-center';
-  content.innerHTML = `<img src=${image} alt="movie-pic">
+  content.innerHTML = `<div class"img-container"><img src=${image} alt="movie-pic" class"popup-img"></div>
   <h2 id="movie-title">${title}</h2>
   <section id="features" class="d-flex j-center j-space-around">
-    <div id="featA" class="d-flex flex-dir">
+    <div id="featA" class="d-flex flex-dir feat">
       <span>Premiered Date: ${premiered}</span>
       <span>Movie Rating: ${rating}</span>
     </div>
-    <div id="featB" class="d-flex flex-dir">
+    <div id="featB" class="d-flex flex-dir feat">
       <span>Movie Type: ${type}</span>
       <span>Runtime: ${runtime} hrs</span>
     </div>
@@ -37,13 +37,13 @@ const commentPopup = (
   <section id="description" class="d-flex">
     <p>${summary}</p>
   </section>
-  <h3>comments <span id="comment-count"></span></h3>
+  <h3>Comments <span id="comment-count"></span></h3>
   <ul class="comment-list"></ul>
-  <form action="" class="d-flex flex-dir">
+  <form action="" class="d-flex flex-dir form b-radius">
     <h3>Add a comment</h3>
-    <input type="text" id="user" placeholder="Your name" required>
-    <input type="text" id="comment" placeholder="Your insights" required>
-    <button type="submit" id="submit">Submit</button>
+    <input class="l-high inner-pad" type="text" id="user" placeholder="Your name" required>
+    <textarea class="inner-pad" rows="10" cols="50" maxlength="200" type="text" id="comment" placeholder="Your insights" required></textarea>
+    <button class="l-high" type="submit" id="submit">Submit</button>
   </form>`;
 
   modalContent.appendChild(content);
