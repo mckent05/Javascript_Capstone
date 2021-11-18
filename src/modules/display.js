@@ -130,6 +130,6 @@ const fetchAllPopup = (list, movieName) => {
   });
 };
 
-export { 
-  modal, fetchAllPopup, fetchFilm, commentCounter, 
+export {
+  modal, fetchAllPopup, fetchFilm, commentCounter,
 };
