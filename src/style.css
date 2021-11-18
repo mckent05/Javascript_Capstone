@@ -209,22 +209,6 @@ a {
   color: red;
 }
 
-/*
-Popup styles
-.img-container {
-  width: 20%;
-}
-
-.popup-img {
-  width: 10px;
-  margin-bottom: 100px;
-}
-
-.popup-img:hover {
-  transform: scale(1.2);
-}
-*/
-
 #movie-title {
   font-size: 2rem;
   color: rgb(35, 27, 49);

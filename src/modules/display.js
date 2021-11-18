@@ -48,8 +48,6 @@ const commentPopup = (
 
   modalContent.appendChild(content);
 
-  // modalContent.style.backgroundImage = `url('${image}')`;
-
   document.getElementsByClassName('close')[0].addEventListener('click', () => {
     modal.style.display = 'none';
     modalContent.removeChild(content);
@@ -112,7 +110,6 @@ const fetchPopup = async (id, movieName) => {
         req.type,
         req.averageRuntime,
         req.image.medium,
-        // req.image.original,
         req.name,
         req.id,
         req.summary,
