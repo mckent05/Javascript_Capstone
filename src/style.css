@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'PT Serif', serif;
 }
 
 .d-flex {
@@ -32,8 +33,18 @@
 }
 
 .partial0 {
-  background-color: rgb(78, 75, 75);
-  padding: 3% 0;
+  background-color: lightblue;
+  padding: 1.5% 0;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+#root {
+  background:  url(./img/backg.jpg) center/cover no-repeat;
 }
 
 li {
@@ -42,12 +53,41 @@ li {
 
 a {
   text-decoration: none;
-  color: azure;
+  color: black;
+  font-size: 20px;
 }
 
 .content {
   width: 90%;
-  margin: 30px auto;
+  margin: 0 auto;
+}
+
+.content > div {
+  background-color: transparent;
+  margin-top: 70px;
+  padding: 15px;
+}
+
+.welcome-text {
+  color: lightblue;
+  font-size: 20px;
+  text-transform: capitalize;
+  animation: move 10s ease-in infinite;
+  width: max-content;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(70%);
+  }
+  
+  50% {
+    transform: translateX(35%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .movie-cont {
@@ -56,13 +96,13 @@ a {
   justify-content: space-evenly;
   flex-wrap: wrap;
   row-gap: 50px;
-  margin-bottom: 50px;
+  margin: 80px 0;
 }
 
 .movie-cont li {
   width: 25%;
   padding: 10px;
-  box-shadow: 0 4px 6px rgb(46, 45, 45);
+  box-shadow: 0 2px 8px ghostwhite;
 }
 
 .desc {
@@ -72,12 +112,20 @@ a {
 }
 
 .desc h2 {
-  color: grey;
+  color: #fff;
 }
 
 .likes {
   row-gap: 10px;
   height: 1%;
+}
+
+.fa-heart {
+  color: beige;
+}
+
+.likes p {
+  color: #fff;
 }
 
 .btn-cont {
@@ -94,7 +142,15 @@ a {
   padding: 12px;
   font-size: 20px;
   box-shadow: 0 4px 6px grey;
-  background-color: #fff;
+  background-color: lightblue;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.fa-comment-alt {
+  color: black;
+  width: 30%;
+  margin-top: 7%;
 }
 
 /* Popup window */
