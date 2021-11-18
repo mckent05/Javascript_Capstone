@@ -4,6 +4,11 @@ const fetchFilm = (id) => fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${i
 
 const modal = document.getElementById('myModal');
 
+const commentCounter = (list, holder) => {
+  holder.textContent = `(${list.length})`;
+  return holder.textContent;
+};
+
 const commentPopup = (
   premiered,
   rating,
@@ -59,13 +64,14 @@ const commentPopup = (
 
   const commentList = document.querySelector('.comment-list');
   const displayComments = (list) => {
+    commentCounter(list, document.querySelector('#comment-count'));
     commentList.textContent = '';
     if (list.length > 0) {
       list.forEach((comment) => {
         const li = document.createElement('li');
         li.innerHTML = `
           <span id="comment-date">${comment.creation_date}</span>
-          <span id="comment-user">${comment.username}</span>
+          <span id="comment-user">${comment.username}</span>:
           <span id="comment-msg">${comment.comment}</span>
         `;
         commentList.append(li);
@@ -73,10 +79,8 @@ const commentPopup = (
     }
   };
 
-  const commentCount = document.querySelector('#comment-count');
   const eachComment = getComments(movieId);
   eachComment.then((data) => {
-    commentCount.textContent = `(${data.length})`;
     displayComments(data);
   });
 
@@ -90,7 +94,6 @@ const commentPopup = (
     ).then(() => {
       const refreshComment = getComments(movieId);
       refreshComment.then((data) => {
-        commentCount.textContent = `(${data.length})`;
         displayComments(data);
       });
     });
@@ -124,4 +127,6 @@ const fetchAllPopup = (list, movieName) => {
   });
 };
 
-export { modal, fetchAllPopup, fetchFilm };
+export {
+  modal, fetchAllPopup, fetchFilm, commentCounter,
+};
