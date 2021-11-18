@@ -1,8 +1,19 @@
+import { getComments, postComment } from './commentUpdate.js';
+
 const fetchFilm = (id) => fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${id}`);
 
 const modal = document.getElementById('myModal');
 
-const commentPopup = (premiered, rating, type, runtime, image, title) => {
+const commentPopup = (
+  premiered,
+  rating,
+  type,
+  runtime,
+  image,
+  title,
+  movieId,
+  summary,
+) => {
   const modalContent = document.getElementById('modal-content');
   const content = document.createElement('section');
   content.classList = 'align-center';
@@ -18,19 +29,19 @@ const commentPopup = (premiered, rating, type, runtime, image, title) => {
       <span>Runtime: ${runtime} hrs</span>
     </div>
   </section>
-  <h2>comments <span id="comment-count"></span></h2>
-  <ul class="comment-list">
-    <li><span id="comment-date">16/11/2021</span><span id="comment-user">Name</span><span
-        id="comment-msg">Message</span>
-    </li>
-  </ul>
+  <section id="description" class="d-flex">
+    <p>${summary}</p>
+  </section>
+  <h3>comments <span id="comment-count"></span></h3>
+  <ul class="comment-list"></ul>
   <form action="" class="d-flex flex-dir">
-    <input type="text" id="user" placeholder="Your name">
-    <input type="text" id="comment" placeholder="Your insights">
+    <h3>Add a comment</h3>
+    <input type="text" id="user" placeholder="Your name" required>
+    <input type="text" id="comment" placeholder="Your insights" required>
     <button type="submit" id="submit">Submit</button>
   </form>`;
 
-  modalContent.append(content);
+  modalContent.appendChild(content);
 
   document.getElementsByClassName('close')[0].addEventListener('click', () => {
     modal.style.display = 'none';
@@ -45,6 +56,45 @@ const commentPopup = (premiered, rating, type, runtime, image, title) => {
       }
     }
   };
+
+  const commentList = document.querySelector('.comment-list');
+  const displayComments = (list) => {
+    commentList.textContent = '';
+    if (list.length > 0) {
+      list.forEach((comment) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span id="comment-date">${comment.creation_date}</span>
+          <span id="comment-user">${comment.username}</span>
+          <span id="comment-msg">${comment.comment}</span>
+        `;
+        commentList.append(li);
+      });
+    }
+  };
+
+  const commentCount = document.querySelector('#comment-count');
+  const eachComment = getComments(movieId);
+  eachComment.then((data) => {
+    commentCount.textContent = `(${data.length})`;
+    displayComments(data);
+  });
+
+  const submitComment = document.getElementById('submit');
+  submitComment.addEventListener('click', (e) => {
+    e.preventDefault();
+    postComment(
+      movieId,
+      document.getElementById('user').value,
+      document.getElementById('comment').value,
+    ).then(() => {
+      const refreshComment = getComments(movieId);
+      refreshComment.then((data) => {
+        commentCount.textContent = `(${data.length})`;
+        displayComments(data);
+      });
+    });
+  });
 };
 
 const fetchPopup = async (id, movieName) => {
@@ -58,6 +108,8 @@ const fetchPopup = async (id, movieName) => {
         req.averageRuntime,
         req.image.medium,
         req.name,
+        req.id,
+        req.summary,
       );
     }
     return req;
