@@ -5,7 +5,7 @@ const fetchFilm = (id) => fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${i
 const modal = document.getElementById('myModal');
 
 const commentCounter = (list, holder) => {
-  holder.textContent = `(${list.length})`
+  holder.textContent = `(${list.length})`;
   return holder.textContent;
 };
 
@@ -127,6 +127,6 @@ const fetchAllPopup = (list, movieName) => {
   });
 };
 
-export { 
-  modal, fetchAllPopup, fetchFilm, commentCounter, 
+export {
+  modal, fetchAllPopup, fetchFilm, commentCounter,
 };

@@ -1,5 +1,5 @@
 import './style.css';
-import { 
+import {
   movieID, getMyMovies, itemCounter, movieCounter,
 } from './modules/movies.js';
 
