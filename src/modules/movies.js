@@ -6,6 +6,7 @@ const movieID = [
   35814, 22622, 28417, 38923, 27387, 28376, 24493, 2589, 41883, 27195,
 ];
 const movieCont = document.querySelector('.movie-cont');
+const movieCounter = document.querySelector('.movie-counter');
 
 const displayMovies = (movieName, image, likes) => {
   movieCont.innerHTML += `<li class ='p-relative d-flex a-center j-center flex-dir'>
@@ -64,6 +65,7 @@ const getMyMovies = (list) => {
   list.forEach((item) => {
     getMovies(item);
   });
+  movieCounter.innerHTML = ` (${list.length})`;
 };
 
 export { movieID, getMyMovies };
