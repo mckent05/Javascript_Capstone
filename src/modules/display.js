@@ -1,7 +1,6 @@
 import { getComments, postComment } from './commentUpdate.js';
 
-const fetchFilm = (id) =>
-  fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${id}`);
+const fetchFilm = (id) => fetch(`https://api.tvmaze.com/lookup/shows?tvrage= ${id}`);
 
 const modal = document.getElementById('myModal');
 
@@ -18,7 +17,7 @@ const commentPopup = (
   image,
   title,
   movieId,
-  summary
+  summary,
 ) => {
   const modalContent = document.getElementById('modal-content');
   const content = document.createElement('section');
@@ -93,7 +92,7 @@ const commentPopup = (
     postComment(
       movieId,
       document.getElementById('user').value,
-      document.getElementById('comment').value
+      document.getElementById('comment').value,
     ).then(() => {
       const refreshComment = getComments(movieId);
       refreshComment.then((data) => {
@@ -116,7 +115,7 @@ const fetchPopup = async (id, movieName) => {
         // req.image.original,
         req.name,
         req.id,
-        req.summary
+        req.summary,
       );
     }
     return req;
@@ -131,4 +130,6 @@ const fetchAllPopup = (list, movieName) => {
   });
 };
 
-export { modal, fetchAllPopup, fetchFilm, commentCounter };
+export { 
+  modal, fetchAllPopup, fetchFilm, commentCounter, 
+};
