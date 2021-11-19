@@ -17,6 +17,10 @@ A movie webapp that can be used for view reviews of your favorite movies. It is 
 
 Check out the [Live Demo](https://mckent05.github.io/Javascript_Capstone/) here 🍕
 
+## Live Video Presentation
+
+Watch the [live](https://drive.google.com/file/d/1P1v4bEYlIrFgqqozAhCoqScraCBZu-vb/view) presentation on what the project is about and how we created the website
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
