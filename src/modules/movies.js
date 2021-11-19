@@ -29,7 +29,8 @@ const displayMovies = (movieName, image, likes) => {
 
   allCommentBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      const movieTitle = e.target.parentElement.previousElementSibling.children[0].innerHTML;
+      const movieTitle =
+        e.target.parentElement.previousElementSibling.children[0].innerHTML;
       modal.style.display = 'block';
       fetchAllPopup(movieID, movieTitle);
     });
@@ -38,7 +39,8 @@ const displayMovies = (movieName, image, likes) => {
   myLikes.forEach((like) => {
     like.addEventListener('click', (e) => {
       e.currentTarget.classList.add('red-back');
-      const itemId = e.currentTarget.parentElement.parentElement.children[0].innerHTML;
+      const itemId =
+        e.currentTarget.parentElement.parentElement.children[0].innerHTML;
       let newLikes = e.currentTarget.nextElementSibling.children[0].innerHTML;
       newLikes = parseInt(newLikes, 10);
       postNewLikes(itemId);
@@ -69,6 +71,4 @@ const getMyMovies = (list) => {
 
 const itemCounter = (list) => list;
 
-export {
-  movieID, getMyMovies, itemCounter, movieCounter,
-};
+export { movieID, getMyMovies, itemCounter, movieCounter };
