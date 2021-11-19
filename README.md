@@ -3,8 +3,7 @@
 A movie webapp that can be used for view reviews of your favorite movies. It is engineered using Vanilla JavaScript (DOM manipulation), [REST API(TVmaze API: data about TV series and movies)](https://www.tvmaze.com/api), HTML5 and Vanilla CSS3 as a Microverse Group Capstone Project.
 
 ## Screenshot
-
-![image](https://user-images.githubusercontent.com/)
+![image](https://user-images.githubusercontent.com/27709832/142585001-5b49e1ee-09ed-4445-a9f7-a8fa437bddd4.png)
 
 ## Built With
 
@@ -28,7 +27,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
-- Clone the repository using (https://github.com/mckent05/Javascript_Capstone/)
+- [Clone the repository using](https://github.com/mckent05/Javascript_Capstone/)
 - run `cd Javascript_Capstone`
 
 ### Install
