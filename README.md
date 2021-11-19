@@ -27,7 +27,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
-- [Clone the repository using](https://github.com/mckent05/Javascript_Capstone/)
+- [Clone the repository](https://github.com/mckent05/Javascript_Capstone/)
 - run `cd Javascript_Capstone`
 
 ### Install
@@ -55,7 +55,7 @@ Get any HTML text editor (VS Code, Brackets, Atom) and run:
 GitHub: [@mckent05](https://github.com/mckent05)
 
 - Twitter: [@mckent05](https://twitter.com/mckent05)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/mckent05)
+- LinkedIn: [akinlade temitope](https://www.linkedin.com/in/akinlade-temitope-7003951b3/)
 
 ## 🤝 Contributing
 
