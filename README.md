@@ -38,6 +38,12 @@ Get any HTML text editor (VS Code, Brackets, Atom) and run:
 - `npm run build`
 - `npm run start`
 
+### Testing
+
+To use the test, ensure that the previously ran `npm install` properly installed JEST.
+- Else, run `npm install --save-dev jest`
+- run `npm run test`
+
 ## Authors
 
 ### Author
